@@ -1,8 +1,8 @@
 # css-grid-tutorial
 Codegirls: Tutorial für CSS Grid
 
-1. Herunterladen oder Klonen
+1. Repository herunterladen oder Klonen
 ```
-$ git clone git@github.com:mkraetke/css-grid-tutorial.git
+git clone https://github.com/mkraetke/css-grid-tutorial
 ```
 2. `index.xhtml` im Web-Browser öffnen.
