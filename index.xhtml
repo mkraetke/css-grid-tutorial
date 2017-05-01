@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Grid-Design mit HTML/CSS</title>
+    <link rel="stylesheet" href="js/highlight/styles/tomorrow.css" />
+    <script src="js/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+
+
+
+  </head>
+  <body>
+    <h1>Grid-Design mit HTML/CSS</h1>
+    <section>
+      <h2>Grid-Design früher: <code>iframe</code></h2>
+      <p>Mit <code>&lt;iframe></code> kann man andere HTML-Seiten in eine Seite einbinden <i>(Frameset)</i>. <code>&lt;iframe></code> wird heute vor allem für Widgets wie YouTube-Videos verwendet, könnte in Zukunft allerdings durch <i>WebComponents</i> abgelöst werden.</p>
+      <pre><code class="html">&lt;iframe src="iframe/iframe-left.xhtml"   width="200" height="100"/>
+&lt;iframe src="iframe/iframe-center.xhtml" width="200" height="100"/>
+&lt;iframe src="iframe/iframe-right.xhtml"  width="200" height="100"/></code></pre>
+      <iframe class="cell" src="iframe/iframe-left.xhtml" width="200" height="100"></iframe>
+      <iframe class="cell" src="iframe/iframe-center.xhtml" width="200" height="100"></iframe>
+      <iframe class="cell" src="iframe/iframe-right.xhtml" width="200" height="100"></iframe>
+      <p>Von Nachteil ist, dass man mit CSS und JavaScript nicht auf den Inhalt der Unterseiten
+        zugreifen kann. Außerdem ist das Vorlesen einer Seite mit iframes durch Screenreader nicht sehr komfortabel.</p>
+    </section>
+    <section>
+      <h2>Grid-Design früher: <code>table</code></h2>
+      <p>HTML-Tabellen wurden früher in Ermangelung von Alternativen auch für Grid Layouts verwendet. Dafür wurde die Seite mit <code>&lt;tr></code> (Tabellenzeile) und <code>&lt;td></code> (Tabellenzelle) in separate Bereiche aufgeteilt.</p>
+      <table style="width:100%">
+        <colgroup>
+          <col class="cell" style="width:30%"/>
+          <col class="cell" style="width:70%"/>
+        </colgroup>
+        <tr>
+          <td class="cell" colspan="2">Logo/Header</td>
+        </tr>
+        <tr>
+          <td class="cell">Navigation</td>
+          <td class="cell">Inhalt</td>
+        </tr>
+        <tr>
+          <td class="cell" colspan="2">Footer</td>
+        </tr>
+      </table>
+      <pre><code class="html">&lt;table style="width:100%">
+  &lt;colgroup>
+    &lt;col style="width:30%"/>
+    &lt;col style="width:70%"/>
+  &lt;/colgroup>
+  &lt;tr>
+    &lt;td colspan="2">Logo/Header&lt;/td>
+  &lt;/tr>
+  &lt;tr>
+    &lt;td>Navigation&lt;/td>
+    &lt;td>Inhalt&lt;/td>
+  &lt;/tr>
+  &lt;tr>
+    &lt;td colspan="2">Footer&lt;/td>
+  &lt;/tr>
+&lt;/table></code></pre>
+      <p>Rastergestaltung mit HTML-Tabellen gilt jedoch buchstäblich als <i>starrer</i> Ansatz. Die Tabellenzellen umbrechen nicht automatisch bei kleinen Bildschirmen. Stattdessen wird der ganze Inhalt auf eine Seite gequetscht. Nicht zuletzt lesen Screenreader den Content Zeile für Zeile und Zelle für Zelle vor. Der Screenreader kann bei Tabellen nicht zwischen den Bereichen für Navigation und Inhalt unterscheiden.</p>
+    </section>
+    <section>
+      <h2>Grid mit CSS Floats</h2>
+      <p>Mit der CSS-Property <code>float</code> kann man einstellen, dass Objekte umflossen werden. Dies war lange Zeit die einzige „saubere“ Möglichkeit, um für Webseiten ein Gestaltungsraster zu entwickeln. Diese Methode funktioniert zuverlässig auf allen gängigen Web-Browsern.</p>
+      <div>
+        <div class="cell" style="float:left; width:200px">Links</div>        
+        <div class="cell" style="float:right; width:200px">Rechts</div>
+        <div class="cell" style="margin-left:20px; min-width:200px;">Mitte</div>
+      </div>
+      <p>Leider ist diese Methode nicht sehr intuitiv, weil man die Tags mitunter gegen die eigentliche Leserichtung anordnen muss und .</p>
+    </section>
+    <section>
+      <h2>CSS Grid</h2>
+      <p>CSS Grid ist eine sehr junge <a href="https://www.w3.org/TR/css3-grid-layout/">W3C-Spezifikation</a> zur Definition von Gestaltungsrastern mit HTML und CSS.</p>
+      <section>
+        <h3>HTML Grundgerüst</h3>
+        <p>Als Erstes beginnen wir damit, uns für die folgenden Schritte ein HTML-Grundgerüst zu entwerfen, mit dem wir später unser Grid anlegen. Das Grundgerüst enthält <code>&lt;div></code>-Elemente mit den Klassen <code>wrapper</code> und <code>box</code>. Die Klassen können wir später mit CSS auswählen und formatieren.</p>
+        
+        <p>Die Vorlage gibt es <a href="vorlage/vorlage.xhtml" target="_blank">hier</a>.</p>
+        
+        <div class="wrapper">
+          <div class="box">Eins</div>
+          <div class="box">Zwei</div>
+          <div class="box">Drei</div>
+          <div class="box">Vier</div>
+          <div class="box">Fünf</div>
+        </div>
+
+        <pre><code class="html">&lt;div class="wrapper">
+  &lt;div class="box">Eins&lt;/div>
+  &lt;div class="box">Zwei&lt;/div>
+  &lt;div class="box">Drei&lt;/div>
+  &lt;div class="box">Vier&lt;/div>
+  &lt;div class="box">Fünf&lt;/div>
+&lt;/div></code></pre>
+        
+      </section>
+    </section>
+    
+    
+    <section>
+      <p>
+        <a href="https://www.w3.org/TR/css3-grid-layout/" target="_blank">Die Spec</a>
+      </p>
+    </section>
+  </body>
+</html>
