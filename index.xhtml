@@ -377,11 +377,16 @@
             <div class="example">
               <pre class="code"><code class="css">.box{background-color:#ccc; margin:0.25em;}
 .wrapper{display:grid; 
+         display:grid; 
          grid-template-columns: repeat(3, 1fr);
-         grid-template-rows: repeat(2, 100px);
-         grid-row-gap:2em;
-         grid-column-gap:0.75em;
-         }</code></pre>
+         grid-template-rows: repeat(4, 100px);
+         }
+@media only screen and (max-width: 600px) {
+  .wrapper{grid-template-columns: 1fr;
+           grid-template-rows:grid-auto-rows: 100px;
+           }
+}
+              </code></pre>
               <div class="preview">
                 <div class="wrapper_responsive">
                   <div class="box">Eins</div>
